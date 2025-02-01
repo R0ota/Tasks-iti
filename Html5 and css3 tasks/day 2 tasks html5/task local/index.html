@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Email Address</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="changeEmailForm">
+      <h1>Change Email Address</h1>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        placeholder="Name"
+        pattern="^[a-zA-Z]+$"
+        required
+      />
+      <input
+        id="email"
+        type="email"
+        name="email"
+        placeholder="Example@gmail.com"
+        pattern="[a-zA-Z0-9.!#$%&’*+\/=?^_`\{\|\}~\-]+@[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*$"
+        required
+      />
+      <label for="rememberMe">Remember me</label>
+      <input type="checkbox" id="remember-me" />
+      <input type="submit" value="Change" />
+    </form>
+
+    <script src="src.js"></script>
+  </body>
+</html>

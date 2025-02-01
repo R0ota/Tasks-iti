@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Map</title>
+    <style>
+      #map {
+        height: 80%;
+        width: 100%;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      select {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <select id="countries">
+      <option value="current">Your Current Location</option>
+      <option value="35.6895,139.6917">Japan</option>
+      <option value="51.5074,-0.1278">United Kingdom</option>
+      <option value="40.7128,-74.0060">United States</option>
+      <option value="48.8566,2.3522">France</option>
+      <option value="28.6139,77.2090">India</option>
+    </select>
+    <div id="map"></div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap"
+      defer
+    ></script>
+    <script>
+      function initMap() {
+
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            showMap(pos.coords.latitude, pos.coords.longitude);
+          },
+          () => {
+            showMap(0, 0); // when error in getting location
+          }
+        );
+
+      // change map according to selected country
+        document.getElementById("countries").addEventListener("change", (e) => {
+          const value = e.target.value;
+          if (value === "current") {
+            navigator.geolocation.getCurrentPosition(
+              (pos) => showMap(pos.coords.latitude, pos.coords.longitude)
+            );
+          } else {
+            const [lat, lng] = value.split(",").map(Number);
+            showMap(lat, lng);
+          }
+        });
+      }
+
+      function showMap(lat, lng) {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: { lat, lng },
+        });
+        new google.maps.Marker({
+          position: { lat, lng },
+          map: map,
+        });
+      }
+
+      window.initMap = initMap;
+    </script>
+  </body>
+</html>

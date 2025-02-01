@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Color Range</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          margin: 20px;
+      }
+      .color-range {
+          margin: 20px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .color-title {
+          margin-right: 10px;
+          font-size: 16px;
+          font-weight: bold;
+      }
+      #textRange {
+          font-size: 24px;
+          font-weight: bold;
+          margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Text Color Range</h1>
+
+    <div class="color-range">
+      <span class="color-title">Red</span>
+      <input type="range" id="redRange" min="0" max="255" value="0" />
+    </div>
+    <div class="color-range">
+      <span class="color-title">Green</span>
+      <input type="range" id="greenRange" min="0" max="255" value="0" />
+    </div>
+    <div class="color-range">
+      <span class="color-title">Blue</span>
+      <input type="range" id="blueRange" min="0" max="255" value="0" />
+    </div>
+
+    <p id="textRange" style="color: rgb(0, 0, 0);">
+      Change the 3 Color Ranges above and observe my color change
+    </p>
+
+    <script>
+      var redColor = document.getElementById('redRange');
+      var greenColor = document.getElementById('greenRange');
+      var blueColor = document.getElementById('blueRange');
+      var para = document.getElementById('textRange');
+
+      function changeColor() {
+          var redValue = redColor.value;
+          var greenValue = greenColor.value;
+          var blueValue = blueColor.value;
+          var rgbColor = "rgb(" + redValue + "," + greenValue + "," + blueValue + ")";
+          para.style.color = rgbColor;
+      }
+
+       redColor.addEventListener('input', changeColor);
+      greenColor.addEventListener('input', changeColor);
+      blueColor.addEventListener('input', changeColor);
+    </script>
+  </body>
+</html>
