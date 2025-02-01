@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navbar start -->
+      <nav>
+        <div>
+          <figure>
+            <img src="logo.png" alt="logo" />
+          </figure>
+        </div>
+        <div class="navbar">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about_us">About us</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <button id="loginButton" class="button login_button">Login</button>
+      </nav>
+      <!-- Navbar end -->
+    </header>
+
+    <script>
+      // Add event listener to the login button
+      document.addEventListener("DOMContentLoaded", () => {
+        var loginButton = document.getElementById("loginButton");
+
+        if (loginButton) {
+          loginButton.addEventListener("click", () => {
+            // Redirect to the form page
+            window.location.href = "form.html";
+          });
+        } else {
+          console.error("Login button not found!");
+        }
+      });
+    </script>
+  </body>
+</html>

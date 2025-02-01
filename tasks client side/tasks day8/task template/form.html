@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
+      .form-container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: white;
+      }
+      .form-container input,
+      .form-container textarea,
+      .form-container button {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .form-container input[type="radio"] {
+        width: auto;
+        margin-right: 5px;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .timeout-message {
+        color: red;
+        font-weight: bold;
+        display: none;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Registration Form</h2>
+      <form id="registrationForm">
+        <input type="text" id="name" placeholder="Name" />
+        <p class="error-message" id="nameError"></p>
+        <input type="text" id="email" placeholder="Email" />
+        <p class="error-message" id="emailError"></p>
+        <input type="text" id="mobile" placeholder="Mobile Number" />
+        <p class="error-message" id="mobileError"></p>
+
+        <div>
+          <input type="radio" id="male" name="gender" value="Male" />
+          <span>Male</span>
+          <input type="radio" id="female" name="gender" value="Female" />
+          <span>Female</span>
+          <p class="error-message" id="genderError"></p>
+        </div>
+
+        <textarea id="address" rows="3" placeholder="Address"></textarea>
+        <p class="error-message" id="addressError"></p>
+
+        <p class="timeout-message" id="timeoutMessage">
+          Timeout! Please fill the form again.
+        </p>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <script>
+             var form = document.getElementById("registrationForm");
+             var timeoutMessage = document.getElementById("timeoutMessage");
+             var timeout;
+             var namePattern = /^[a-zA-Z\s]+$/; // varters and spaces only
+             var agePattern = /^[1-9][0-9]*$/; // Positive integers only
+             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+             var nameError = document.getElementById("nameError");
+            var ageError = document.getElementById("ageError");
+            var emailError = document.getElementById("emailError");
+
+            //  Timeout logic
+             function startTimeout() {
+               timeout = setTimeout(() => {
+                 timeoutMessage.style.display = "block";
+                 form.reset();
+               }, 30000); // 30 seconds
+             }
+
+             function resetTimeout() {
+               clearTimeout(timeout);
+               startTimeout();
+             }
+
+            //  Reset timeout on user interaction
+             form.addEventListener("input", resetTimeout);
+
+             // Validation logic
+             form.addEventListener("submit", (e) => {
+              console.log("re")
+               e.preventDefault(); // Prevent default form submission
+
+               var isValid = true;
+
+               // Validate Name
+               var name = document.getElementById("name").value.trim();
+               console.log(name)
+               var nameError = document.getElementById("nameError");
+               if (name == "") {
+                console.log(nameError)
+                   nameError.textContent = "the field is required";
+                   isValid = false;
+                } else if (!namePattern.test(name)) {
+                 nameError.textContent = "Invalid Name";
+                 isValid = false;
+                 }
+                 else{
+                  nameError.textContent=""
+
+                 }
+      console.log(nameError)
+               // Validate Email
+               var email = document.getElementById("email").value.trim();
+               var emailError = document.getElementById("emailError");
+               var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+               if (email== "") {
+                emailError.textContent = "the field is required";
+                 isValid = false;
+                 } else if (!emailPattern.test(email)) {
+                  emailError.textContent = "Invalid email";
+                  isValid = false;
+                 }
+                 else{
+                  emailError.textContent =""
+                 }
+
+               // Validate Mobile
+               var mobile = document.getElementById("mobile").value.trim();
+               var mobileError = document.getElementById("mobileError");
+               var mobileRegex = /^(\+?[1-9]\d{1,4})?\s?\d{10}$/;
+               if (mobile === "") {
+                  mobileError.textContent = "the field is required";
+                 isValid = false;
+               } else if(!emailPattern.test(email)){
+                mobileError.textContent = "Invalid Mobile";
+                isValid = false;
+               }
+               else{
+                mobileError.textContent =""
+               }
+
+               // Validate Gender
+               var genderError = document.getElementById("genderError");
+               var male = document.getElementById("male").checked;
+               var female = document.getElementById("female").checked;
+               if (!(male || female)) {
+                genderError.textContent = "the field is required";
+                 isValid = false;
+               }
+               else{
+                genderError.textContent = "";
+               }
+
+               // Validate Address
+               var address = document.getElementById("address").value.trim();
+               var addressError = document.getElementById("addressError");
+               if (address === "") {
+                  addressError.textContent = "the field is required";
+                 isValid = false;
+               }
+               else{
+                addressError.textContent =""
+               }
+               // If form is valid, redirect to the welcome page
+               if (isValid) {
+                 window.location.href = `welcome.html?name=${name}&email=${email}`;
+                //  window.location.href = `welcome.html?name=${name}&email=${email}&mobile=${mobile}&address=${address}`;
+               }
+             });
+
+             // Start timeout when the page loads
+             startTimeout();
+    </script>
+     
+  </body>
+</html>

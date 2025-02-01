@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent Window</title>
+    <style>
+      #openWindow{
+        margin-left: 500px;
+        margin-top: 221px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="openWindow">Open Child Window</button>
+    <script>
+      document.getElementById("openWindow").addEventListener("click", function () {
+        var childWindow = window.open("", "", "width=400,height=400");
+
+        childWindow.document.write(`
+          <p id="message" style="font-size: 20px; font-family: Arial, sans-serif; text-align: center; margin-top: 50%;"> </p>
+        `);
+
+        var message = "Welcome!";
+        var index = 0;
+        var messageElement = childWindow.document.getElementById("message");
+
+        var interval = setInterval(function () {
+          if (index < message.length) {
+            messageElement.textContent += message[index];
+            index++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 300);
+
+        // Close the child window after 5 seconds
+        setTimeout(function () {
+          childWindow.close();
+        }, 5000);
+      });
+    </script>
+  </body>
+</html>

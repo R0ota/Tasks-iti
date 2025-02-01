@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CSS magic</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		#linksbar {
+  width: 25%;
+  background-color: gray;
+  float: left;   
+}
+
+#content {
+  width: 75%;
+  height: 70%;
+  background-color: pink;
+  float: left;
+}
+
+.none-bullet-list {
+  list-style-type: none;
+  padding: 0;
+  margin-left:40px
+}
+#linksbar li > a {
+  color: red;
+  background-color: pink;
+  text-decoration: none;
+}
+
+#linksbar li > a:hover {
+  background-color: red;
+  color: pink;
+}
+#content h2 + p {
+  font-size: 12px;
+  font-weight: bold;
+}
+#loginform {
+  border: 2px dashed rgb(20, 70, 60);
+}
+input[type="text"] {
+  background-color: yellow;
+}
+
+input[type="text"]:focus {
+  background-color: white;  
+}
+.tabled-bordered {
+  display: table-cell;
+  padding: 15px;
+  border: 1px solid ;
+}
+
+#aboutus{
+			color:red !important
+		}
+		#content >#aboutus{
+			color:yellow
+		}
+
+
+p::after {
+  content: " Read this";
+  color: yellow;
+}
+		
+
+	</style>
+</head>
+<body>
+	<div id="header" >
+		<h1>This is the page header</h1>
+	</div>
+	<span id="linksbar">
+		<div id="loginform" >
+			User name: <input type="text"/>
+			</br>
+			Password: <input type="password"/>
+			<br/>
+			<input type="checkbox" /> remember me
+			<br/>
+			<button>login</button>
+		</div>
+		<h2> site menu</h2>
+		<ul class="none-bullet-list">
+			<li><a href="#">link1</a></li>
+			<li><a href="#">link2</a></li>
+			<li><a href="#">link3</a></li>
+			<li><a href="#">link4</a></li>
+			<li><a href="#">link5</a></li>
+		</ul>
+	</span>
+	<span id="content">
+		<h2> about us</h2>
+		<p id="aboutus">
+			This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph.
+		</p>
+		
+		<div id="titles"  >
+			<span class="tabled-bordered"> title1</span>
+			<span class="tabled-bordered"> title2</span>
+			<span class="tabled-bordered"> title3</span>
+		</div> 
+
+	</span>
+
+	
+
+</body>
+</html>

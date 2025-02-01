@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Key Press Test</title>
+  </head>
+  <body>
+    <h1>Press any key!</h1>
+
+    <script>
+      document.addEventListener("keyup", function (event) {
+        var   message =
+            "Key Pressed: " +
+            event.key +
+            "\nASCII Code: " +
+            event.keyCode;
+
+        if (event.altKey) {
+          message += "\nAlt key is Pressed";
+        } if (event.ctrlKey) {
+          message += "\nctrl key is Pressed";
+        } if (event.shiftKey) {
+          message += "\nshift key is Pressed";
+        }
+
+
+
+        alert(message);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation with Reset</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="userForm">
+      <input type="text" id="name" placeholder="Name " />
+      <span class="error" id="nameError"></span>
+
+      <input type="text" id="age" placeholder="Age " />
+      <span class="error" id="ageError"></span>
+
+      <input type="text" id="email" placeholder="example@mail.com" />
+      <span class="error" id="emailError"></span>
+      <div>
+        <button type="button" id="addButton">Add</button>
+        <button type="reset" id="resetButton">Reset</button>
+      </div>
+    </form>
+
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="src.js"></script>
+  </body>
+</html>

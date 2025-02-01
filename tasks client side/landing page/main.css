@@ -1,0 +1,20 @@
+body {
+  background-image: url(./images/photo-generator.webp);
+  /* position: relative; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.image-heading {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+h1,
+p {
+  color: white;
+}
+.image-content {
+  top: 32px;
+  right: 83px;
+  position: absolute;
+}
