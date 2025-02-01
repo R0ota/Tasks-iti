@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Bands and Artists</title>
+    <style>
+            body {
+              font-family: Arial, sans-serif;
+              margin: 20px;
+              padding: 20px;
+              background-color: #fff;
+            }
+            h1 {
+              font-size: 24px;
+              color: #333;
+            }
+            label {
+              display: block;
+              margin: 10px 0 5px;
+              font-weight: bold;
+            }
+            select {
+              width: 300px;
+              padding: 10px;
+              font-size: 16px;
+              margin-bottom: 20px;
+            }
+      #error-image img {
+        display: none;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-left: 315px;
+        margin-top: 100px;
+
+      }
+
+      #error-image img:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 8px 20px rgba(255, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content" style="display: none;">
+      <h1>Rock Bands and Artists</h1>
+      <label for="bandSelect">Select Band:</label>
+      <select id="bandSelect">
+        <option value="">-- Select a Band --</option>
+      </select>
+
+      <label for="artistSelect">Select Artist:</label>
+      <select id="artistSelect" disabled>
+        <option value="">-- Select an Artist --</option>
+      </select>
+    </div>
+
+    <div id="error" style="display: none;">
+      <img
+        id="error-image"
+        src="https://img.pikbest.com/png-images/qianku/404-error-model_2369179.png!w700wp"
+        alt="Error Occurred"
+      />
+    </div>
+
+    <script src="src.js"></script>
+  </body>
+</html>

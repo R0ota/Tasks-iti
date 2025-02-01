@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Management</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Book Management</h1>
+
+    <div class="form_container">
+      <label for="numBooks">Enter the number of books:</label>
+      <input type="text" id="numBooks" />
+      <span id="numBooksError" class="error_message"></span>
+      <button onclick="createForm()">Submit</button>
+    </div>
+
+    <div id="bookFormContainer" class="hidden">
+      <form id="bookForm">
+        <!-- Dynamic form fields will be inserted here -->
+      </form>
+      <div class="button_container">
+        <button type="submit" onclick="submitForm()">Submit Books</button>
+      </div>
+    </div>
+
+    <table id="bookTable" class="hidden">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Author Name</th>
+          <th>Author Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic rows will be inserted here -->
+      </tbody>
+    </table>
+
+    <script src="script.js"></script>
+  </body>
+</html>

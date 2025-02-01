@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        id: "SD-10",
+        location: "SV",
+        addr: "123 st.",
+        getSetGen: function () {
+          var self = this; // Save `this` in a variable to use inside the loop
+
+          for (var key in this) {
+            if (typeof this[key] !== "function") { // Ensure the property is not a function
+              (function (key) {
+                var value = self[key]; // Save the property value
+
+                // Define getter and setter for the property
+                Object.defineProperty(self, key, {
+                  get: function () {
+                    return value; // Return the value
+                  },
+                  set: function (val) {
+                    value = val; // Set the new value
+                  }
+                });
+              })(key);
+            }
+          }
+        }
+      };
+
+      var user = { name: "Ali", age: 25 };
+
+      // Apply the getSetGen function on the user object
+      obj.getSetGen.call(user);
+
+      // Testing the getter and setter
+      console.log(user.name); // Prints "Ali"
+      user.name = "Ahmed"; // Set a new value
+      console.log(user.name); // Prints "Ahmed"
+      console.log(user)
+    </script>
+  </body>
+</html>
