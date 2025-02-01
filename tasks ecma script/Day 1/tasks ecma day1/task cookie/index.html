@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #8e44ad, #3498db);
+        color: #333;
+      }
+
+      form {
+        background: #ffffff;
+        padding: 5rem;
+        border-radius: 15px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 300px;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      .gender {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.5rem;
+      }
+
+      input {
+        border: none;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: rgb(240, 255, 255);
+      }
+
+      input::placeholder {
+        font-size: 1rem;
+      }
+
+      input:focus {
+        background-color: rgb(182, 206, 206);
+      }
+
+      .color-picker {
+        margin-top: 20px;
+      }
+
+      .color-picker input {
+        width: 80px;
+        height: 60px;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+
+      button {
+        padding: 1rem 2rem;
+        width: 50%;
+        margin: 0 5rem;
+        border: none;
+        background-color: rgb(240, 255, 255);
+        border-radius: 1rem;
+        font-size: 1.2rem;
+        font-family: "Courier New", Courier, monospace;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: rgb(182, 206, 206);
+        color: rgb(255, 255, 255);
+      }
+    </style>
+  </head>
+
+  <body>
+    <form id="registrationForm">
+      <label for="name">Your Name :</label>
+      <input
+        type="text"
+        placeholder="your name..."
+        required
+        pattern="^[a-zA-Z\s]{3,30}$"
+        title="Name should only contain letters and spaces, between 3 to 30 characters."
+      />
+
+      <label for="number">Your age :</label>
+      <input
+        type="text"
+        placeholder="your age..."
+        pattern="^\d{1,3}$"
+        required
+        title="Age should be a number between 1 and 999"
+      />
+
+      <label>Gender:</label>
+      <div class="gender">
+        <label for="male">
+          <img src="m.jpg" alt="Male" class="gender_icon" id="male" />Male
+        </label>
+        <input type="radio" id="male" name="gender" value="male" required />
+
+        <label for="female">
+          <img
+            src="f.jpeg"
+            alt="Female"
+            class="gender_icon"
+            id="female"
+          />Female
+        </label>
+        <input type="radio" id="female" name="gender" value="female" required />
+      </div>
+
+      <div class="color-picker">
+        <label for="color">Choose color:</label>
+        <input
+          type="color"
+          id="color"
+          name="color"
+          pattern="^#([A-Fa-f0-9]{6})$"
+          title="Enter a valid hex color code, e.g., #FF5733"
+          required
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <script src="cookies.js"></script>
+
+    <script src="index.js"></script>
+  </body>
+</html>
